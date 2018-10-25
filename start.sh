@@ -6,5 +6,9 @@ if [ -z "$(ls -A /usr/src/app)" ]; then
    rm -R new
 fi
 
+if [ ! -e "/usr/src/app/.env" ]; then
+    echo "Your .env file is missing. Please install your site via dashboard or ensure that SECRET_KEY variable is available."
+fi
+
 cd /usr/src/app
 vapid start

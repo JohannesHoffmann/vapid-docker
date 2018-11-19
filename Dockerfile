@@ -3,7 +3,7 @@ FROM node:10-jessie
 MAINTAINER "Johannes Hoffmann"
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential make python
-RUN npm install -g vapid-cli@0.3.0 --unsafe-perm && npm install
+RUN npm install -g vapid-cli@0.3.2 --unsafe-perm && npm install
 
 # Create app directory
 RUN mkdir -p /usr/src/app

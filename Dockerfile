@@ -1,9 +1,11 @@
-FROM node:10-jessie
+FROM node:10-alpine
 
 MAINTAINER "Johannes Hoffmann"
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential make python
+RUN apk update && apk add --virtual build-dependencies build-base make python
 RUN npm install -g @vapid/cli@0.8.0 --unsafe-perm
+RUN apk del build-dependencies && \
+        rm -rf /var/cache/apk/*
 
 # Create app directory
 RUN mkdir -p /usr/src/app
